@@ -72,7 +72,7 @@ function getSizeSpeed(){
 }
 
 function getSizeSpeedExp(){
-  let base = new Decimal(0.5)
+  let base = new Decimal(1.25)
   base = base.add(getTotalGenBoost(0).mul(getGeneratorBoostBaseEffect()[2]))
   return base
 }
@@ -91,12 +91,12 @@ function getTimeSpeed(){
 
 function getTimeBoost(){
   if (game.challenge !== 0) return new Decimal(1)
-  let base = game.time.max(1).log(13.799e9*31.536e6).div(2).add(1)
+  let base = game.time.max(1).log(13.799e6*31.536e4).div(2).add(1)
   return base
 }
 
 function getGeneratorBoostBaseEffect(){
-  let output = [null, new Decimal(2), new Decimal(0.005), new Decimal(10)] // first one is multiply value, second one is add value, third one is add percentage
+  let output = [null, new Decimal(1.2), new Decimal(0.05), new Decimal(10)] // first one is multiply value, second one is add value, third one is add percentage
   if (game.universeUpgrade[5]) {
     output[1] = output[1].mul(1.5)
     output[2] = output[2].mul(1.5)
