@@ -1,18 +1,18 @@
 function updateGenerator(ms){
-  game.atoms = game.atoms.add(getGeneratorSpeed(1).mul(ms).div(1000))
-  game.totalAtoms = game.totalAtoms.add(getGeneratorSpeed(1).mul(ms).div(1000))
+  game.atoms = game.atoms.add(getGeneratorSpeed(1).mul(ms).div(100))
+  game.totalAtoms = game.totalAtoms.add(getGeneratorSpeed(1).mul(ms).div(100))
   for (let i=1; i<7.5; i++){
-    game.generator[i] = game.generator[i].add(getGeneratorSpeed(i+1).mul(ms).div(1000))
+    game.generator[i] = game.generator[i].add(getGeneratorSpeed(i+1).mul(ms).div(100))
   }
 }
 
 function updateSize(ms){
-  game.size = game.size.add(getSizeSpeed().mul(ms).div(1000))
+  game.size = game.size.add(getSizeSpeed().mul(ms).div(100))
   if (game.size.gte(game.bestSize)) game.bestSize = game.size
 }
 
 function updateTime(ms){
-  game.time = game.time.add(getTimeSpeed().mul(ms).div(1000))
+  game.time = game.time.add(getTimeSpeed().mul(ms).div(100))
 }
 
 function getGeneratorMulti(gen){
