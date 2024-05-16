@@ -1,18 +1,18 @@
 function updateGenerator(ms){
-  game.atoms = game.atoms.add(getGeneratorSpeed(1).mul(ms).div(100))
-  game.totalAtoms = game.totalAtoms.add(getGeneratorSpeed(1).mul(ms).div(100))
+  game.atoms = game.atoms.add(getGeneratorSpeed(1).mul(ms).div(35))
+  game.totalAtoms = game.totalAtoms.add(getGeneratorSpeed(1).mul(ms).div(35))
   for (let i=1; i<7.5; i++){
-    game.generator[i] = game.generator[i].add(getGeneratorSpeed(i+1).mul(ms).div(100))
+    game.generator[i] = game.generator[i].add(getGeneratorSpeed(i+1).mul(ms).div(35))
   }
 }
 
 function updateSize(ms){
-  game.size = game.size.add(getSizeSpeed().mul(ms).div(100))
+  game.size = game.size.add(getSizeSpeed().mul(ms).div(35))
   if (game.size.gte(game.bestSize)) game.bestSize = game.size
 }
 
 function updateTime(ms){
-  game.time = game.time.add(getTimeSpeed().mul(ms).div(100))
+  game.time = game.time.add(getTimeSpeed().mul(ms).div(35))
 }
 
 function getGeneratorMulti(gen){
@@ -84,7 +84,7 @@ function getSizeBoost(){
 }
 
 function getTimeSpeed(){
-  let base = game.universeUpgrade[2] ? game.universePoints.max(1).log(1000) : new Decimal(0)
+  let base = game.universeUpgrade[2] ? game.universePoints.max(1).log(100) : new Decimal(0)
   base = base.mul(1 + getTotalChallengeCompletion(1) / 2)
   return base
 }
